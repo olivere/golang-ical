@@ -58,62 +58,63 @@ const (
 type Property string
 
 const (
-	PropertyCalscale        Property = "CALSCALE" // TEXT
-	PropertyMethod          Property = "METHOD"   // TEXT
-	PropertyProductId       Property = "PRODID"   // TEXT
-	PropertyVersion         Property = "VERSION"  // TEXT
-	PropertyXPublishedTTL   Property = "X-PUBLISHED-TTL"
-	PropertyRefreshInterval Property = "REFRESH-INTERVAL;VALUE=DURATION"
-	PropertyAttach          Property = "ATTACH"
-	PropertyCategories      Property = "CATEGORIES"  // TEXT
-	PropertyClass           Property = "CLASS"       // TEXT
-	PropertyColor           Property = "COLOR"       // TEXT
-	PropertyComment         Property = "COMMENT"     // TEXT
-	PropertyDescription     Property = "DESCRIPTION" // TEXT
-	PropertyXWRCalDesc      Property = "X-WR-CALDESC"
-	PropertyGeo             Property = "GEO"
-	PropertyLocation        Property = "LOCATION" // TEXT
-	PropertyPercentComplete Property = "PERCENT-COMPLETE"
-	PropertyPriority        Property = "PRIORITY"
-	PropertyResources       Property = "RESOURCES" // TEXT
-	PropertyStatus          Property = "STATUS"    // TEXT
-	PropertySummary         Property = "SUMMARY"   // TEXT
-	PropertyCompleted       Property = "COMPLETED"
-	PropertyDtend           Property = "DTEND"
-	PropertyDue             Property = "DUE"
-	PropertyDtstart         Property = "DTSTART"
-	PropertyDuration        Property = "DURATION"
-	PropertyFreebusy        Property = "FREEBUSY"
-	PropertyTransp          Property = "TRANSP" // TEXT
-	PropertyTzid            Property = "TZID"   // TEXT
-	PropertyTzname          Property = "TZNAME" // TEXT
-	PropertyTzoffsetfrom    Property = "TZOFFSETFROM"
-	PropertyTzoffsetto      Property = "TZOFFSETTO"
-	PropertyTzurl           Property = "TZURL"
-	PropertyAttendee        Property = "ATTENDEE"
-	PropertyContact         Property = "CONTACT" // TEXT
-	PropertyOrganizer       Property = "ORGANIZER"
-	PropertyRecurrenceId    Property = "RECURRENCE-ID"
-	PropertyRelatedTo       Property = "RELATED-TO" // TEXT
-	PropertyUrl             Property = "URL"
-	PropertyUid             Property = "UID" // TEXT
-	PropertyExdate          Property = "EXDATE"
-	PropertyExrule          Property = "EXRULE"
-	PropertyRdate           Property = "RDATE"
-	PropertyRrule           Property = "RRULE"
-	PropertyAction          Property = "ACTION" // TEXT
-	PropertyRepeat          Property = "REPEAT"
-	PropertyTrigger         Property = "TRIGGER"
-	PropertyCreated         Property = "CREATED"
-	PropertyDtstamp         Property = "DTSTAMP"
-	PropertyLastModified    Property = "LAST-MODIFIED"
-	PropertyRequestStatus   Property = "REQUEST-STATUS" // TEXT
-	PropertyName            Property = "NAME"
-	PropertyXWRCalName      Property = "X-WR-CALNAME"
-	PropertyXWRTimezone     Property = "X-WR-TIMEZONE"
-	PropertySequence        Property = "SEQUENCE"
-	PropertyXWRCalID        Property = "X-WR-RELCALID"
-	PropertyTimezoneId      Property = "TIMEZONE-ID"
+	PropertyCalscale          Property = "CALSCALE" // TEXT
+	PropertyMethod            Property = "METHOD"   // TEXT
+	PropertyProductId         Property = "PRODID"   // TEXT
+	PropertyVersion           Property = "VERSION"  // TEXT
+	PropertyXPublishedTTL     Property = "X-PUBLISHED-TTL"
+	PropertyRefreshInterval   Property = "REFRESH-INTERVAL;VALUE=DURATION"
+	PropertyAttach            Property = "ATTACH"
+	PropertyCategories        Property = "CATEGORIES"  // TEXT
+	PropertyClass             Property = "CLASS"       // TEXT
+	PropertyColor             Property = "COLOR"       // TEXT
+	PropertyComment           Property = "COMMENT"     // TEXT
+	PropertyDescription       Property = "DESCRIPTION" // TEXT
+	PropertyXWRCalDesc        Property = "X-WR-CALDESC"
+	PropertyGeo               Property = "GEO"
+	PropertyLocation          Property = "LOCATION" // TEXT
+	PropertyPercentComplete   Property = "PERCENT-COMPLETE"
+	PropertyPriority          Property = "PRIORITY"
+	PropertyResources         Property = "RESOURCES" // TEXT
+	PropertyStatus            Property = "STATUS"    // TEXT
+	PropertySummary           Property = "SUMMARY"   // TEXT
+	PropertyCompleted         Property = "COMPLETED"
+	PropertyDtend             Property = "DTEND"
+	PropertyDue               Property = "DUE"
+	PropertyDtstart           Property = "DTSTART"
+	PropertyDuration          Property = "DURATION"
+	PropertyFreebusy          Property = "FREEBUSY"
+	PropertyTransp            Property = "TRANSP" // TEXT
+	PropertyTzid              Property = "TZID"   // TEXT
+	PropertyTzname            Property = "TZNAME" // TEXT
+	PropertyTzoffsetfrom      Property = "TZOFFSETFROM"
+	PropertyTzoffsetto        Property = "TZOFFSETTO"
+	PropertyTzurl             Property = "TZURL"
+	PropertyAttendee          Property = "ATTENDEE"
+	PropertyContact           Property = "CONTACT" // TEXT
+	PropertyOrganizer         Property = "ORGANIZER"
+	PropertyRecurrenceId      Property = "RECURRENCE-ID"
+	PropertyRelatedTo         Property = "RELATED-TO" // TEXT
+	PropertyUrl               Property = "URL"
+	PropertyUid               Property = "UID" // TEXT
+	PropertyExdate            Property = "EXDATE"
+	PropertyExrule            Property = "EXRULE"
+	PropertyRdate             Property = "RDATE"
+	PropertyRrule             Property = "RRULE"
+	PropertyAction            Property = "ACTION" // TEXT
+	PropertyRepeat            Property = "REPEAT"
+	PropertyTrigger           Property = "TRIGGER"
+	PropertyCreated           Property = "CREATED"
+	PropertyDtstamp           Property = "DTSTAMP"
+	PropertyLastModified      Property = "LAST-MODIFIED"
+	PropertyRequestStatus     Property = "REQUEST-STATUS" // TEXT
+	PropertyName              Property = "NAME"
+	PropertyXWRCalName        Property = "X-WR-CALNAME"
+	PropertyXWRTimezone       Property = "X-WR-TIMEZONE"
+	PropertySequence          Property = "SEQUENCE"
+	PropertyXWRCalID          Property = "X-WR-RELCALID"
+	PropertyXGoogleConference Property = "X-GOOGLE-CONFERENCE"
+	PropertyTimezoneId        Property = "TIMEZONE-ID"
 )
 
 type Parameter string
@@ -348,6 +349,10 @@ func (calendar *Calendar) SetXWRTimezone(s string, props ...PropertyParameter) {
 
 func (calendar *Calendar) SetXWRCalID(s string, props ...PropertyParameter) {
 	calendar.setProperty(PropertyXWRCalID, string(s), props...)
+}
+
+func (calendar *Calendar) SetXGoogleConference(s string, props ...PropertyParameter) {
+	calendar.setProperty(PropertyXGoogleConference, string(s), props...)
 }
 
 func (calendar *Calendar) SetDescription(s string, props ...PropertyParameter) {
